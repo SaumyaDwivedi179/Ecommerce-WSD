@@ -1,0 +1,246 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* About Section */
+.about-section {
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+/* Grid Layout */
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Item */
+.about-grid-item {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(102, 120, 136, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    color: rgb(6, 0, 0);
+    transition: transform 0.3s; /* Add a subtle transition */
+}
+
+.about-grid-item:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Image Container */
+.about-image-container {
+    width: 40%;
+    position: relative;
+}
+
+/* Image Styling */
+.about-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Text Styling */
+.about-text {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.learn-more-btn {
+    padding: 10px 20px;
+    background-color: #041608;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.learn-more-btn:hover {
+    background-color: #1d9a8d;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-grid-item {
+        flex-direction: column;
+    }
+    .about-image-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .about-text {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Navigation Styles */
+header {
+    background-color: #4a7d7d; /* Adjusted for better contrast */
+    padding: 15px 0;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#shopName {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* White text for shop name */
+}
+
+#menuToggle {
+    display: none; /* Hidden by default for larger screens */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#menuToggle span {
+    height: 3px;
+    width: 25px;
+    background: white; /* White lines for the hamburger icon */
+    margin: 3px 0;
+}
+
+nav#collection {
+    display: flex;
+    gap: 20px;
+}
+
+nav#collection div {
+    position: relative;
+}
+
+nav#collection a {
+    text-decoration: none;
+    color: white; /* White text for links */
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav#collection a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+#search {
+    flex-grow: 1; /* Allow search section to grow */
+    margin-left: 20px; /* Space between search and nav */
+}
+
+#input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+}
+
+#user a {
+    color: white; /* White for user icon */
+    font-size: 20px; /* Icon size */
+    margin-left: 15px; /* Space between icons */
+}
+
+/* Responsive Design for Navigation */
+@media (max-width: 768px) {
+    #menuToggle {
+        display: flex; /* Show hamburger menu on small screens */
+    }
+
+    nav#collection {
+        display: none; /* Hide nav items initially */
+        flex-direction: column;
+        position: absolute;
+        background-color: #bff1f5;
+        top: 60px; /* Position below the header */
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    nav#collection.show {
+        display: flex; /* Show nav items when menu is toggled */
+    }
+}

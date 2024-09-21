@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Ecommerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-image: url('img/signup.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: white;
+            width: 500px;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            color: #888;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #5cb85c;
+        }
+
+        .btn {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #4cae4c;
+        }
+
+        .signup-container p {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-container a {
+            color: #5cb85c;
+            text-decoration: none;
+        }
+
+        .signup-container a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username" required>
+                <span class="error" id="usernameError">Username must be at least 3 characters long.</span>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email" required>
+                <span class="error" id="emailError">Please enter a valid email.</span>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="error" id="passwordError">Password must be at least 6 characters long.</span>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <span class="error" id="phoneError">Please enter a valid phone number.</span>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-calendar"></i>
+                <input type="date" id="dob" placeholder="Date of Birth" required>
+                <span class="error" id="dobError">Please enter a valid date of birth.</span>
+            </div>
+
+            <button type="submit" class="btn" id="submitButton">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+        <p class="success hidden" id="successMessage">Sign up successful!</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBn6AnYw9Tnz6lrRNUMDnF6scUUFXKxS8g",
+            authDomain: "login-c8a5a.firebaseapp.com",
+            projectId: "login-c8a5a",
+            storageBucket: "login-c8a5a.appspot.com",
+            messagingSenderId: "446732510290",
+            appId: "1:446732510290:web:b34c422ec5b32b25c7ab8b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('signupForm');
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const phone = document.getElementById('phone');
+            const dob = document.getElementById('dob');
+            const successMessage = document.getElementById('successMessage');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const emailValue = email.value;
+                const passwordValue = password.value;
+
+                createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+
+                        // Save additional user details to Realtime Database
+                        const db = getDatabase();
+                        set(ref(db, 'users/' + user.uid), {
+                            username: username.value,
+                            email: emailValue,
+                            phone: phone.value,
+                            dob: dob.value
+                        })
+                            .then(() => {
+                                successMessage.classList.remove('hidden');
+                                setTimeout(() => {
+                                    successMessage.classList.add('hidden');
+                                    window.location.href = "login.html";
+                                }, 1000);
+                            })
+                            .catch((error) => {
+                                alert(`Error saving user details: ${error.message}`);
+                            });
+                    })
+                    .catch((error) => {
+                        const errorMessage = error.message;
+                        alert(`Error: ${errorMessage}`);
+                    });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

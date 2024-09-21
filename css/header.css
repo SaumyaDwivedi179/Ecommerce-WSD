@@ -1,0 +1,216 @@
+body {
+    margin: 0;
+}
+
+#badge {
+    position: absolute;
+    background-color: rgb(255, 30, 30);
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 14px;
+    top: -10px;
+    /* Adjust this value to align the badge */
+    right: -10px;
+    /* Adjust this value to align the badge */
+}
+
+section {
+    padding-bottom: 50px;
+}
+
+#container {
+    background-color: white;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    /* Changed to flex for horizontal layout */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: space-between;
+    /* Space out items */
+    padding: 15px 20px;
+    /* Adjust padding for smaller screens */
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    /* Fixed position at the top */
+    left: 0;
+    /* Ensure it stretches across */
+    right: 0;
+    /* Ensure it stretches across */
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+    z-index: 1000;
+    /* Ensure it stays on top */
+}
+
+#shopName {
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+}
+
+#shopName a {
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+}
+
+#shopName>b {
+    font-weight: 900;
+}
+
+#collection {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    /* Align vertically */
+    gap: 20px;
+    /* Space between items */
+}
+
+#collection a {
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+    font-size: 16px;
+    /* Reduced font size */
+}
+
+#search {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    padding: 14px;
+    color: rgb(29, 29, 29);
+}
+
+.addedToCart {
+    font-size: 1.5em;
+    margin-right: 25px;
+    position: relative;
+    /* Position relative to place badge */
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Space between user icons */
+    position: relative;
+    /* Allow absolute positioning for badge */
+}
+
+.userIcon {
+    font-size: 45px;
+}
+
+#input {
+    width: 35em;
+    height: 3em;
+    padding: 2px 50px;
+    background-color: rgb(241, 241, 241);
+    border: none;
+    border-radius: 5px;
+}
+
+#input::placeholder {
+    font-weight: bold;
+}
+
+#input:focus {
+    outline: none;
+}
+
+#user a {
+    color: rgb(29, 29, 29);
+}
+
+/* Media Queries */
+@media(max-width: 750px) {
+    #container {
+        flex-direction: column;
+        /* Stack items on smaller screens */
+        align-items: flex-start;
+        /* Align items to start */
+        padding: 10px;
+        /* Adjust padding for smaller screens */
+    }
+
+    #shopName {
+        font-size: 30px;
+        /* Adjust shop name size */
+    }
+
+    #collection {
+        font-size: 14px;
+        /* Adjust collection font size */
+        gap: 10px;
+        /* Adjust spacing for smaller screens */
+    }
+
+    #user {
+        margin-top: 10px;
+        /* Add spacing above the user section */
+    }
+
+    #input {
+        width: 100%;
+        /* Full width input on small screens */
+    }
+}
+
+/* Modal and other styles remain unchanged */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}

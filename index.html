@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URBAN THREAD| E-COMMERCE WEBSITE</title>
+
+    <link rel="icon"
+        href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo"
+        type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #shopName {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #menuToggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        #menuToggle span {
+            height: 3px;
+            width: 25px;
+            background-color: black;
+            margin: 3px 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        #search {
+            display: flex;
+            align-items: center;
+        }
+
+        #input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #user {
+            position: relative;
+        }
+
+        #badge {
+            position: absolute;
+            background-color: rgb(255, 30, 30);
+            color: white;
+            border-radius: 50%;
+            padding: 5px 8px;
+            font-size: 14px;
+            top: -10px;
+            right: -10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            #menuToggle {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #fff;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section>
+            <div id="container">
+                <div id="shopName"><a href="index.html"><b>URBAN</b>THREADS</div>
+
+                <!-- Hamburger Icon -->
+                <div id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav id="collection">
+                    <div><a href="about.html">ABOUT</a></div>
+                    <div><a href="contact.html">CONTACT</a></div>
+                    <div><a href="login.html" id="loginBtn">LOGIN</a></div>
+                </nav>
+
+                <!-- Search Section -->
+                <div id="search">
+                    <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
+                </div>
+
+                <!-- User Section -->
+                <div id="user">
+                    <a href="cart.html"><i class="fas fa-shopping-cart addedToCart">
+                            <div id="badge">0</div>
+                        </i></a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" action="login.html" method="POST">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter email" required>
+
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <div id="3"></div>
+    <script>
+        load("content.html");
+        function load(url) {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(3).innerHTML = req.responseText;
+        }
+    </script>
+
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url) {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+
+    <script>
+        const modal = document.getElementById("loginModal");
+        const btn = document.getElementById("loginBtn");
+        const span = document.getElementsByClassName("close")[0];
+        const menuToggle = document.getElementById("menuToggle");
+        const nav = document.getElementById("collection");
+
+        btn.onclick = function (event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        menuToggle.onclick = function () {
+            nav.classList.toggle("active");
+        }
+    </script>
+
+    <script src="content.js"></script>
+</body>
+
+</html>

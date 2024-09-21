@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.css">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<style>
+    .foot{
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        background-color: rgb(73, 98, 82);
+        color: white;
+        height: 80px;
+        width: 100%;
+        text-decoration: none;
+        border-top: 2px solid gray;
+    }
+</style>
+
+<body>
+
+    <header>
+        <section>
+            <div id="container">
+                <div id="shopName"><a href="index.html"><b>URBAN </b>THREADS</a></div>
+                <div id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav id="collection">
+                    <!-- <div><a href="content.html">CLOTHING</a></div>
+                    <div><a href="accessories.html">ACCESSORIES</a></div> -->
+                    <div><a href="about.html">ABOUT</a></div>
+                    <div><a href="contact.html">CONTACT</a></div>
+                    <div><a href="#" id="loginBtn">LOGIN</a></div>
+                </nav>
+                <div id="search">
+                    <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
+                </div>
+                <div id="user">
+                    <a href="cart.html"><i class="fas fa-shopping-cart addedToCart">
+                            <div id="badge">0</div>
+                        </i></a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-grid-item">
+                <div class="about-image-container">
+                    <img src="./img/1.jpg" alt="E-commerce" class="about-image">
+                </div>
+                <div class="about-text">
+                    <h1>About Us</h1>
+                    <p>Welcome to our e-commerce store! We provide a wide range of products to meet your needs.</p>
+                    <button class="learn-more-btn" data-title="About Us"
+                        data-description="Welcome to our e-commerce store! We offer a wide variety of products to meet your needs. From clothing to accessories, we have something for everyone.">Learn
+                        More</button>
+                </div>
+            </div>
+            <div class="about-grid-item">
+                <div class="about-image-container">
+                    <img src="./img/2.jpg" alt="E-commerce" class="about-image">
+                </div>
+                <div class="about-text">
+                    <h1>Our Mission</h1>
+                    <p>Our mission is to make online shopping seamless and enjoyable for customers.</p>
+                    <button class="learn-more-btn" data-title="Our Mission"
+                        data-description="Our mission is to create an easy and enjoyable shopping experience for customers worldwide. We strive to provide high-quality products and exceptional service.">Learn
+                        More</button>
+                </div>
+            </div>
+            <div class="about-grid-item">
+                <div class="about-image-container">
+                    <img src="./img/3.jpg" alt="E-commerce" class="about-image">
+                </div>
+                <div class="about-text">
+                    <h1>Product Quality and Standards</h1>
+                    <p>The quality of products we offer are top notch and they pass through very high standards.</p>
+                    <button class="learn-more-btn" data-title="Product Quality and Standards"
+                        data-description="We maintain high standards for the quality of our products. Every item is carefully selected and rigorously tested to meet your expectations.">Learn
+                        More</button>
+                </div>
+            </div>
+            <div class="about-grid-item">
+                <div class="about-image-container">
+                    <img src="./img/4.jpg" alt="E-commerce" class="about-image">
+                </div>
+                <div class="about-text">
+                    <h1>Customer Support and Services</h1>
+                    <p>Customer is our priority and our team is hitting well on that.</p>
+                    <button class="learn-more-btn" data-title="Customer Support and Services"
+                        data-description="We value our customers and prioritize providing excellent customer service. Our support team is always ready to assist you with any issues.">Learn
+                        More</button>
+                </div>
+            </div>
+            <div class="about-grid-item">
+                <div class="about-image-container">
+                    <img src="./img/5.jpg" alt="E-commerce" class="about-image">
+                </div>
+                <div class="about-text">
+                    <h1>Global Reach</h1>
+                    <p>We provide services around the globe.</p>
+                    <button class="learn-more-btn" data-title="Global Reach"
+                        data-description="Our services are available globally, allowing customers from around the world to enjoy our products. No matter where you are, we are here to serve you.">Learn
+                        More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-description">Description goes here.</p>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" action="login.php" method="POST">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter email" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script src="./js/about.js"></script>
+    <script>
+        // Get modal elements
+        const aboutModal = document.getElementById("aboutModal");
+        const loginModal = document.getElementById("loginModal");
+
+        // Get buttons that open the modals
+        const loginBtn = document.getElementById("loginBtn");
+        const closeLoginModal = document.getElementsByClassName("close")[1]; // Second close
+        const closeAboutModal = document.getElementsByClassName("close")[0]; // First close
+
+        // Open Login Modal
+        loginBtn.onclick = function (event) {
+            event.preventDefault();
+            loginModal.style.display = "block";
+        }
+
+        // Open About Modal with dynamic content
+        const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+        learnMoreBtns.forEach(btn => {
+            btn.onclick = function () {
+                const title = btn.getAttribute('data-title');
+                const description = btn.getAttribute('data-description');
+                aboutModal.style.display = "block";
+                document.getElementById("modal-title").innerText = title;
+                document.getElementById("modal-description").innerText = description;
+            }
+        });
+
+        // Close Modals
+        closeLoginModal.onclick = function () {
+            loginModal.style.display = "none";
+        }
+        closeAboutModal.onclick = function () {
+            aboutModal.style.display = "none";
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            if (event.target == loginModal) {
+                loginModal.style.display = "none";
+            }
+            if (event.target == aboutModal) {
+                aboutModal.style.display = "none";
+            }
+        }
+    </script>
+    <footer class="foot">
+        
+        <div>
+            <h6><a href="./contact.html">FOR MORE DETAIL CONTACT US</a></h6>
+            <div id="credit">© SAUMYA DWIVEDI | KAVYA PODDAR | TUSHAR MAHAJAN</div>
+           
+    
+            </div>
+       </footer>
+</body>
+
+</html>

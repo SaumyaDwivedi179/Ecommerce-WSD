@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - URBANTHREADS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #ffccf9 0%, #b19cd9 100%);
+      animation: gradient 5s infinite alternate;
+      background-size: 400% 400%;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    header {
+      background-color: #7e9699; /* Dark background for the header */
+      padding: 15px 0;
+  }
+  
+  #container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+  }
+  
+  #shopName {
+      font-size: 24px;
+      font-weight: bold;
+      color: white; /* White text for shop name */
+  }
+  
+  #menuToggle {
+      display: none; /* Hidden by default for larger screens */
+      flex-direction: column;
+      cursor: pointer;
+  }
+  
+  #menuToggle span {
+      height: 3px;
+      width: 25px;
+      background: white; /* White lines for the hamburger icon */
+      margin: 3px 0;
+  }
+  
+  nav#collection {
+      display: flex;
+      gap: 20px;
+  }
+  
+  nav#collection div {
+      position: relative;
+  }
+  
+  nav#collection a {
+      text-decoration: none;
+      color: white; /* White text for links */
+      padding: 10px 15px;
+      transition: background-color 0.3s ease;
+  }
+  
+  nav#collection a:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+      border-radius: 5px; /* Rounded corners on hover */
+  }
+  
+  #search {
+      flex-grow: 1; /* Allow search section to grow */
+      margin-left: 20px; /* Space between search and nav */
+  }
+  
+  #input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+  }
+  
+  #user {
+      display: flex;
+      align-items: center;
+  }
+  
+  #user a {
+      color: white; /* White for user icon */
+      font-size: 20px; /* Icon size */
+      margin-left: 15px; /* Space between icons */
+  }
+  
+  /* Responsive Design for Navigation */
+  @media (max-width: 768px) {
+      #menuToggle {
+          display: flex; /* Show hamburger menu on small screens */
+      }
+  
+      nav#collection {
+          display: none; /* Hide nav items initially */
+          flex-direction: column;
+          position: absolute;
+          background-color: #bff1f5;
+          top: 60px; /* Position below the header */
+          right: 0;
+          width: 100%;
+          padding: 10px 0;
+      }
+  
+      nav#collection.show {
+          display: flex; /* Show nav items when menu is toggled */
+      }
+  }
+  
+  
+  </style>
+</head>
+<header>
+  <section>
+      <div id="container">
+          <div id="shopName"><a href="index.html"><b>URBAN</b>THREADS</div>
+          <div id="menuToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+          <nav id="collection">
+              <!-- <div><a href="clothing.html">CLOTHING</a></div> -->
+              <!-- <div><a href="accessories.html">ACCESSORIES</a></div> -->
+              <div><a href="about.html">ABOUT</a></div>
+              <div><a href="contact.html">CONTACT</a></div>
+              <div><a href="#" id="loginBtn">LOGIN</a></div>
+          </nav>
+          <div id="search">
+              <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
+          </div>
+          <div id="user">
+              <a href="cart.html"><i class="fas fa-shopping-cart addedToCart"><div id="badge">0</div></i></a>
+          </div>
+      </div>
+  </section>
+</header>
+
+<body class="min-h-screen">
+  <div class="container mx-auto bg-white rounded-lg shadow-lg p-10 max-w-4xl my-16">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Contact Us</h2>
+    
+    <div class="mb-8">
+      <p class="text-lg text-center">Welcome to URBAN THREADS, your one-stop e-commerce website for stylish clothing and accessories for men and women. We are here to help you with any issues or inquiries. Please feel free to reach out to us using the form below.</p>
+    </div>
+  
+    <!-- Write Us Section -->
+    <div class="flex justify-center mb-10">
+      <form id="contactForm" class="w-full max-w-lg">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="full-name">Full Name</label>
+          <input class="w-full border border-gray-300 p-3 rounded-lg" type="text" id="full-name" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+          <input class="w-full border border-gray-300 p-3 rounded-lg" type="email" id="email" placeholder="Enter your email" required>
+        </div>
+  
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="issue-type">Issue Type</label>
+          <input class="w-full border border-gray-300 p-3 rounded-lg" type="text" id="issue-type" placeholder="Describe the issue" required>
+        </div>
+  
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Are you an existing customer?</label>
+          <div class="flex items-center">
+            <label class="mr-6">
+              <input type="radio" name="existing-customer" value="yes" required> Yes
+            </label>
+            <label>
+              <input type="radio" name="existing-customer" value="no" required> No
+            </label>
+          </div>
+        </div>
+  
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Your Message</label>
+          <textarea class="w-full border border-gray-300 p-3 rounded-lg h-32" id="message" placeholder="Your message here..." required></textarea>
+        </div>
+  
+        <div class="text-center">
+          <button class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-lg" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Developer's Info Section -->
+    <div class="bg-white p-10 rounded-lg shadow-md max-w-full mt-16">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Developer's Info</h2>
+      <p class="text-center mb-8">Support available from 8 AM - 8 PM, Mon-Sat</p>
+
+      <div class="flex flex-col md:flex-row justify-around">
+        <div class="text-center w-full md:w-1/3 px-6 mb-6 md:mb-0">
+          <img src="img/Kavya.jpg" class="rounded-full mx-auto mb-4 w-24 h-24" alt="Kavya Poddar">
+          <p class="font-bold mb-2">Kavya Poddar</p>
+          <p class="mb-1">Email: <br>
+            <a href="mailto:kavya.poddar@mca.christuniversity.in" class="text-blue-600 break-all ml-[-2rem]">kavya.poddar@mca.christuniversity.in</a>
+          </p>
+          <p>Contact: +91 9116613350</p>
+        </div>
+
+        <div class="text-center w-full md:w-1/3 px-6 mb-6 md:mb-0">
+          <img src="img/Saumya.jpg" class="rounded-full mx-auto mb-4 w-24 h-24" alt="Saumya Dwivedi">
+          <p class="font-bold mb-2">Saumya Dwivedi</p>
+          <p class="mb-1">Email: <br>
+            <a href="mailto:saumya.dwivedi@mca.christuniversity.in" class="text-blue-600 break-all ml-[-2rem]">saumya.dwivedi@mca.christuniversity.in</a>
+          </p>
+          <p>Contact: +91 7991355551</p>
+        </div>
+
+        <div class="text-center w-full md:w-1/3 px-6">
+          <img src="img/Tushar.jpg" class="rounded-full mx-auto mb-4 w-24 h-24" alt="Tushar Mahajan">
+          <p class="font-bold mb-2">Tushar Mahajan</p>
+          <p class="mb-1">Email: <br>
+            <a href="mailto:tushar.mahajan@mca.christuniversity.in" class="text-blue-600 break-all ml-[-2rem]">tushar.mahajan@mca.christuniversity.in</a>
+          </p>
+          <p>Contact: +91 9311271770</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const fullName = document.getElementById('full-name').value;
+        const message = document.getElementById('message').value;
+
+        if (validateEmail(email)) {
+          window.location.href = `mailto:${email}?subject=Customer Inquiry&body=Name: ${fullName}%0D%0A${message}`;
+        } else {
+          alert('Please enter a valid email address');
+        }
+      });
+
+      function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return re.test(email);
+      }
+    </script>
+    
+</body>
+</html>
